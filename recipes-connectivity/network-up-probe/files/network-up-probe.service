@@ -1,0 +1,14 @@
+[Unit]
+Description=Network Up Probe Service
+After=network-online.target
+Wants=network-online.target
+After=time-sync.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/root
+ExecStart=/usr/bin/network-up-probe.sh
+
+[Install]
+WantedBy=multi-user.target
